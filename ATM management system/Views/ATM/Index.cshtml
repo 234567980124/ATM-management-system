@@ -1,0 +1,27 @@
+﻿@*@{
+        ViewBag.Title = "Index";
+    }*@
+
+@*<h2>User</h2>*@
+
+@model ATM_management_system.Models.Account
+
+@{
+    ViewBag.Title = "ATM Machine";
+}
+<h4>
+    @Html.ActionLink("Withdraw Amount", "Withdrawal", "Withdrawal", new { area = "" }, new { @class = "nav-link" })
+</h4>
+<h4>
+    @Html.ActionLink("Deposit Amount", "Deposit", "Deposit", new { area = "" }, new { @class = "nav-link" })
+</h4>
+
+<h4>
+    @Html.ActionLink("Check Balance", "CheckBalance", "Balance", new { area = "" }, new { @class = "nav-link" })
+</h4>
+<h4>
+    @Html.ActionLink("Mini Statement", "MiniStatement", "MiniStatement", new { area = "" }, new { @class = "nav-link" })
+</h4>
+<h4>
+    @Html.ActionLink("Pin Change", "PinChange", "PinChange", new { area = "" }, new { @class = "nav-link" })
+</h4>   

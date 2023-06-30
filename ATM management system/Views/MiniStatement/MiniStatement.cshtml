@@ -1,0 +1,58 @@
+﻿@model ATM_management_system.Models.MinistatementModel
+
+@{
+    ViewBag.Title = "MiniStatement";
+    //Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Mini Statement</h2>
+
+@using (Html.BeginForm("MiniStatement", "MiniStatement", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AccountNumber, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.AccountNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.AccountNumber)
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="View Statement" class="btn btn-primary" />
+    </div>
+}
+
+@if (ViewBag.Transactions != null)
+{
+    <h4>Transaction History:</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaction in ViewBag.Transactions)
+            {
+                <tr>
+                    <td>@transaction.TransactionID</td>
+                    <td>@transaction.Date</td>
+                    <td>@transaction.Amount</td>
+                    <td>@transaction.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+@Html.ActionLink("Back to List", "Index")
+</p>

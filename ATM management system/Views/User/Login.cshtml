@@ -1,0 +1,51 @@
+﻿@model ATM_management_system.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<!--header-->
+<div class="agileheader">
+    <h1>Welcome to JBI bank ATM</h1>
+</div>
+<!--//header-->
+<!--main-->
+<section class="main-w3l">
+    <div class="Login">
+        <h2>Login Now</h2>
+        <div class="w3ls-form">
+            @using (Html.BeginForm())
+            {
+
+
+                <div class="AccountNumber-w3ls">
+                    <input type="number" name="AccountNumber" placeholder="Enter AccountNumber" required="">
+                    <span class="icon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                </div>
+                <div class="w3ls-password">
+                    <input type="password" name="PinNumber" placeholder="Enter Pin Number" required="">
+                    <span class="icon3"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                </div>
+                @*<span><input type="checkbox" />Remember Me</span>
+            <h6><a href="#">Forgot Password?</a></h6>*@
+                <div class="clear"></div>
+
+                <input type="submit" value="Login" name="Login">
+            
+            }
+
+        </div>
+        <div class="w3ls-bottom">
+            
+            <p>Don't Have an Account ?@Html.ActionLink("NewRegister", "NewRegister", "User")</p>
+        </div>
+    </div>
+    
+</section>
+<!--//main-->
+<!--footer-->
+<!--<div class="footer-w3l">
+    <p>&copy; 2018 Trendy Flat Login Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+</div>-->
+<!--//footer-->
+@*</body>
+</html>*@

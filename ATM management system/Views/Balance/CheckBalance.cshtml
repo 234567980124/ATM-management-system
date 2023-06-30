@@ -1,0 +1,43 @@
+﻿@model ATM_management_system.Models.Account
+@{
+    ViewBag.Title = "CheckBalance";
+    //Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+@using (Html.BeginForm("CheckBalance", "Balance", FormMethod.Post))
+{
+
+        <h4>AccountBalance</h4>
+    Html.AntiForgeryToken();
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AccountNumber, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.AccountNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.AccountNumber)
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Check Balance" class="btn btn-primary" />
+        </div>
+
+
+        if (ViewBag.Balance != null)
+        {
+            <div class="alert alert-success">
+                Your account balance is: @ViewBag.Balance
+            </div>
+            }
+        }
+
+        @*@if (ViewBag.ErrorMessage)
+        {
+            <div class="alert alert-danger">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+        }*@
+        <p>
+            @*@Html.ActionLink("Edit", "Edit", new { id = Model.AccountNumber})*@ |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
